@@ -1,0 +1,19 @@
+<h2>Calculator </h2>
+
+<h3>Number First</h3>
+<input type="text" #number1>
+<br>
+<select #operator>
+  <option value="+"> +</option>
+  <option value="-"> -</option>
+  <option value="*"> *</option>
+  <option value="/"> /</option>
+</select>
+<h3>Second Number</h3>
+<input type="text" #number2>
+<br>
+<input type="button" (click)="calculate(number1.value,number2.value,operator.value)" value="Enter">
+<hr>
+<p>Result : {{result}}</p>
+
+

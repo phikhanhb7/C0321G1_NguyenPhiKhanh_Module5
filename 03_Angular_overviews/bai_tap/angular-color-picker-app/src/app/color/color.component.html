@@ -1,0 +1,13 @@
+<h1>Color Picker</h1>
+<p>Chon Mau</p>
+<select [(ngModel)]="color">
+  <option value="red"> Red</option>
+  <option value="blue"> Blue</option>
+  <option value="black"> Black</option>
+</select>
+
+<h1>Chon size</h1>
+<input type="range" min="10" max="100" [(ngModel)]="size">
+<br>
+<hr>
+<p [ngStyle]="{fontSize :size + 'px', color: color}" > My Name is Khanh </p>
