@@ -1,0 +1,44 @@
+
+<div style="background: azure">
+  <div style=" display:inline-block;width: 60%; float: left ; margin: 15px 5%">
+    <a href="/customers/create-customer">
+      <button type="button" class="btn btn-primary"> ++Create customer</button>
+    </a>
+  </div>
+  <div style=" text-align: right; display: inline-block; width: 20% ; margin:15px 5%">
+    <a href="/home">
+      <button type="button" class="btn btn-warning">Back to home</button>
+    </a>
+  </div>
+  <!--    <h1 style="color: blue; text-align: center">Customer</h1>-->
+
+</div>
+
+
+<div style="margin: 15px 5%">
+
+  <div style="margin: 10px">
+    <form class="d-flex justify-content-end" action="/customers" method="get" >
+      <input class="form-control" name="search" type="search" placeholder="Name or BirthDay or IdCard">
+      <input class="btn btn-primary" type="submit" value="Search">
+    </form>
+  </div>
+  <table class="table table-bordered table-striped ">
+    <tr>
+      <td>NO</td>
+      <td>Customer code</td>
+      <td>Customer type</td>
+      <td>Customer Name</td>
+      <td>Birthday</td>
+      <td>Gender</td>
+      <td>ID Card</td>
+      <td>Number Phone</td>
+      <td>Email</td>
+      <td>Address</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+
+
+  </table>
+</div>

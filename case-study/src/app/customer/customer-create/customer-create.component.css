@@ -1,0 +1,14 @@
+p {
+  color: red;
+}
+
+footer{
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin-bottom:0px;
+}
+hr{
+  color: #00cccc;
+}
