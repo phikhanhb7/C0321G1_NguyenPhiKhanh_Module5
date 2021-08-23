@@ -1,121 +1,46 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<div class="container">
-  <form class="well form-horizontal" action="/customers/create-customer" method="post">
-    <a href="/customers">
-      <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to list
-      </button>
-    </a>
+<div class="container mt-2">
+  <h2 class="text-center">ADD New Customer</h2>
+  <form action="/customer/create" method="post">
+    <div>
+      <div class="form-group container">
+        <label>Customer code :</label>
+        <input class="form-control" type="text" name="code" aria-describedby="code">
 
-    <fieldset >
-      <!-- Form Name -->
-      <legend >
-     <h2><b>Create Form <br></b></h2>
-      </legend>
-      <br>
+        <label for="customerType" class="mt-2">Customer Type :</label>
+        <select class="form-control" id="customerType">
+          <option></option>
+        </select>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">Customer Type</label>
-        <div class="col-md-4 selectContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <select class="form-control selectpicker">
-              <option>
-              </option>
-            </select>
-          </div>
+        <label class="mt-2">name :</label>
+        <input class="form-control" type="text" name="name">
+
+        <label class="mt-2">Birthday :</label>
+        <input class="form-control" type="date" name="birthday">
+
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" name="gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>LGBT</option>
+        </select>
+
+        <label class="mt-2">Id Card :</label>
+        <input class="form-control" type="text" name="idCard" aria-describedby="idCard">
+
+        <label class="mt-2">Phone :</label>
+        <input class="form-control" type="text" name="phone" aria-describedby="phone">
+
+        <label class="mt-2">Email :</label>
+        <input class="form-control" type="text" name="email" aria-describedby="email">
+
+        <label class="mt-2">Address :</label>
+        <input class="form-control" type="text" name="address">
+
+        <div class="mt-2">
+          <input class="btn btn-success" type="submit" value="Create"> |
+          <a class="btn btn-dark" href="/customer" role="button">Back</a>
         </div>
       </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label ">Code</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input placeholder="Code" class="form-control" type="text">
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4 control-label ">Name</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input placeholder="Name" class="form-control" type="text">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Birthday</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input placeholder="Birthday" class="form-control" type="date">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Id Card</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input class="form-control" type="number">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Gender</label>
-        <div class="col-md-4 selectContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
-            <select class="form-control selectpicker">
-              <option value="1">Male</option>
-              <option value="0">FeMale</option>
-              <option value="2">Other</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Phone Number</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input placeholder="(84)" class="form-control" type="number">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">E-Mail</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input placeholder="E-Mail Address" class="form-control" type="email">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label ">Address</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input placeholder="Address" class="form-control" type="text">
-          </div>
-        </div>
-      </div>
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-      <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-send"></span> Submit</button>
-    </fieldset>
+    </div>
   </form>
 </div>
-

@@ -1,5 +1,5 @@
 {
-  "name": "case-study",
+  "name": "angular-hackernews-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,11 +19,7 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
-    "bootstrap": "^4.6.0",
-    "bootstrap-icons": "^1.5.0",
-    "jquery": "^3.6.0",
     "rxjs": "~6.5.4",
-    "sweetalert2": "^11.1.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
