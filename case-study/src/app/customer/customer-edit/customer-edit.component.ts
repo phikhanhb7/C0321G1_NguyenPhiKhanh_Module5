@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../service/customer.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CustomerType} from '../model/customerType';
@@ -18,7 +18,7 @@ export class CustomerEditComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private toast : ToastrService) {
+              private toast: ToastrService) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       this.getCustomer(this.id);
@@ -33,61 +33,58 @@ export class CustomerEditComponent implements OnInit {
 
   }
 
-  initForm(){
+  initForm() {
     this.editForm = new FormGroup({
       id: new FormControl(),
-      code: new FormControl(),
-      customerType: new FormControl(),
-      name: new FormControl(),
-      birthday: new FormControl(),
-      idCard: new FormControl(),
-      phone: new FormControl(),
-      email: new FormControl(),
-      address: new FormControl()})
-    ;
+      code: new FormControl('', [Validators.required, Validators.pattern('^(KH)-[0-9]{4}$')]),
+      customerType: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z]{1,}')]),
+      birthday: new FormControl('', [Validators.required]),
+      idCard: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}||[0-9]{12}$')]),
+      phone: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      address: new FormControl('', [Validators.required])
+    });
   }
 
 
-
   getCustomer(id: number) {
-    this.customerService.findById(id).subscribe(data=>{
-      console.log('DDay la id' + id)
+    this.customerService.findById(id).subscribe(data => {
+      console.log('DDay la id' + id);
       this.editForm.patchValue({
-        code : data.code,
-        customerType : data.customerType,
+        code: data.code,
+        customerType: data.customerType,
         name: data.name,
         birthday: data.birthday,
         idCard: data.idCard,
         phone: data.phone,
         email: data.email,
-        address : data.address
-      })
-      console.log(this.id)
-    })
-
+        address: data.address
+      });
+      console.log(this.id);
+    });
 
 
   }
-
 
 
   getAllCustomerType() {
     this.customerService.getAllCustomerType().subscribe(data => {
-    this.customerTypes = data;
+      this.customerTypes = data;
     });
   }
 
 
-  editCustomer(){
+  editCustomer() {
     const customer = this.editForm.value;
-    this.customerService.update(this.id,customer).subscribe(()=>{
+    this.customerService.update(this.id, customer).subscribe(() => {
       this.router.navigateByUrl('customer-list');
       this.showSuccess();
-    })
+    });
   }
 
-  showSuccess(){
-    this.toast.success('Edit Customer success','Thông báo');
+  showSuccess() {
+    this.toast.success('Edit Customer success', 'Thông báo');
   }
 
   compareFn(c1: any, c2: any): boolean {

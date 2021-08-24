@@ -40,11 +40,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customers ; let i = index">
-      <td>{{i + 1}}</td>
+    <tr *ngFor="let customer of customers | paginate: {itemsPerPage: 3 , currentPage : p} ; let i = index">
+      <td>{{i+1}}</td>
       <td>{{customer.code}}</td>
       <td>{{customer?.customerType?.name}}</td>
-      <td>{{customer.name}}</td>
+      <td><a (click)="onDetailHandler(customer)">{{customer.name}}</a></td>
       <td>{{customer.birthday}}</td>
       <td>{{customer.idCard}}</td>
       <td>{{customer.phone}}</td>
@@ -61,4 +61,6 @@
     </tr>
     </tbody>
   </table>
+
+  <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
 </div>

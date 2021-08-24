@@ -2,39 +2,108 @@
   <h2 class="text-center">ADD New Customer</h2>
   <form [formGroup]="editForm" (ngSubmit)="editCustomer()">
     <div>
-<!--      <input type="hidden" formControlName="id">-->
+      <!--      <input type="hidden" formControlName="id">-->
       <div class="form-group container">
+
         <label>Customer code :</label>
         <input class="form-control" type="text" name="code" aria-describedby="code" formControlName="code">
+        <div *ngIf="!editForm.get('code').valid && (editForm.get('code').dirty || editForm.get('code').touched)">
+          <div [hidden]=" !editForm.get('code').errors.required">
+            <span style="color: red">vui lòng vào!!!</span>
+          </div>
+          <div [hidden]=" !editForm.get('code').errors.pattern">
+            <span style="color: red">nhập sai vui lòng nhập  đúng KH-XXXX</span>
+          </div>
+        </div>
 
-        <label class="mt-2">Customer Type :</label>
-        <select class="form-control" name="customerType" formControlName="customerType"  [compareWith]="compareFn">
-          <option *ngFor=" let ct of customerTypes" [ngValue]="ct" selected > {{ct.name}}</option>
-        </select>
+        <div>
+          <label class="mt-2">Customer Type :</label>
+          <select class="form-control" name="customerType" formControlName="customerType" [compareWith]="compareFn">
+            <option *ngFor=" let ct of customerTypes" [ngValue]="ct" selected> {{ct.name}}</option>
+          </select>
+          <div
+            *ngIf="!editForm.get('customerType').valid && (editForm.get('customerType').dirty ||editForm.get('customerType').touched)">
+            <div [hidden]="!editForm.get('customerType').errors.required">
+              <span style="color: red">vui lòng chọn loại khách hàng</span>
+            </div>
+          </div>
 
-        <label class="mt-2">Name :</label>
-        <input class="form-control" type="text" name="name" formControlName="name">
 
-        <label class="mt-2">Birthday :</label>
-        <input class="form-control" type="date" name="birthday" formControlName="birthday">
+          <label class="mt-2">Name :</label>
+          <input class="form-control" type="text" name="name" formControlName="name">
+          <div *ngIf="!editForm.get('name').valid && (editForm.get('name').dirty ||editForm.get('name').touched)">
+            <div [hidden]="!editForm.get('name').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+            <div [hidden]="!editForm.get('name').errors.pattern">
+              <span style="color: red">nhập sai vui lòng lại!!</span>
+            </div>
+          </div>
 
-        <label class="mt-2">Id Card :</label>
-        <input class="form-control" type="text" name="idCard" aria-describedby="idCard" formControlName="idCard">
 
-        <label class="mt-2">Phone :</label>
-        <input class="form-control" type="text" name="phone" aria-describedby="phone" formControlName="phone">
+          <label class="mt-2">Birthday :</label>
+          <input class="form-control" type="date" name="birthday" formControlName="birthday">
+          <div
+            *ngIf="!editForm.get('birthday').valid && (editForm.get('birthday').dirty ||editForm.get('birthday').touched)">
+            <div [hidden]="!editForm.get('birthday').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+          </div>
 
-        <label class="mt-2">Email :</label>
-        <input class="form-control" type="text" name="email" aria-describedby="email" formControlName="email">
 
-        <label class="mt-2">Address :</label>
-        <input class="form-control" type="text" name="address" formControlName="address">
+          <label class="mt-2">Id Card :</label>
+          <input class="form-control" type="text" name="idCard" aria-describedby="idCard" formControlName="idCard">
+          <div *ngIf="!editForm.get('idCard').valid && (editForm.get('idCard').dirty ||editForm.get('idCard').touched)">
+            <div [hidden]="!editForm.get('idCard').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+            <div [hidden]="!editForm.get('idCard').errors.pattern">
+              <span style="color: red">nhập sai vui lòng lại!! 9 hoăc 12 số</span>
+            </div>
+          </div>
 
-        <div class="mt-2">
-          <input class="btn btn-success" type="submit" value="Update"> |
-          <a class="btn btn-dark"[routerLink]="'/customer-list'" role="button">Back</a>
+
+          <label class="mt-2">Phone :</label>
+          <input class="form-control" type="text" name="phone" aria-describedby="phone" formControlName="phone">
+          <div *ngIf="!editForm.get('phone').valid && (editForm.get('phone').dirty ||editForm.get('phone').touched)">
+            <div [hidden]="!editForm.get('phone').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+            <div [hidden]="!editForm.get('phone').errors.pattern">
+              <span style="color: red">nhập sai vui lòng lại!!</span>
+            </div>
+          </div>
+
+
+          <label class="mt-2">Email :</label>
+          <input class="form-control" type="text" name="email" aria-describedby="email" formControlName="email">
+          <div *ngIf="!editForm.get('email').valid && (editForm.get('email').dirty ||editForm.get('email').touched)">
+            <div [hidden]="!editForm.get('email').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+            <div [hidden]="!editForm.get('email').errors.email">
+              <span style="color: red">nhập sai vui lòng lại!!</span>
+            </div>
+          </div>
+
+
+          <label class="mt-2">Address :</label>
+          <input class="form-control" type="text" name="address" formControlName="address">
+          <div
+            *ngIf="!editForm.get('address').valid && (editForm.get('address').dirty ||editForm.get('address').touched)">
+            <div [hidden]="!editForm.get('address').errors.required">
+              <span style="color: red">vui lòng nhập vào!!!</span>
+            </div>
+          </div>
+
+
+          <div class="mt-2">
+            <input [disabled]="!editForm.valid" class="btn btn-success" type="submit" value="Update"> |
+            <a class="btn btn-dark" [routerLink]="'/customer-list'" role="button">Back</a>
+          </div>
         </div>
       </div>
+
     </div>
   </form>
 </div>

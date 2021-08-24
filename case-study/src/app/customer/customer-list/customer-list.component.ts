@@ -4,6 +4,7 @@ import {CustomerService} from '../service/customer.service';
 import {MatDialog} from '@angular/material/dialog';
 import {CustomerDeleteComponent} from '../customer-delete/customer-delete.component';
 import {CustomerType} from '../model/customerType';
+import {CustomerDetailComponent} from '../customer-detail/customer-detail.component';
 
 @Component({
   selector: 'app-customer-list',
@@ -15,6 +16,7 @@ export class CustomerListComponent implements OnInit {
   customerTypes: CustomerType[] = [];
 
   // public customers;
+  p:number;
 
   constructor(private customerService: CustomerService,
               private dialog: MatDialog) {
@@ -53,6 +55,14 @@ export class CustomerListComponent implements OnInit {
       if (result) {
           this.getAll();
       }
+    });
+  }
+
+  onDetailHandler(customer: Customer) {
+    const dialogRef = this.dialog.open(CustomerDetailComponent, {
+      width: '500px',
+      height: '700px',
+      data: customer
     });
   }
 }

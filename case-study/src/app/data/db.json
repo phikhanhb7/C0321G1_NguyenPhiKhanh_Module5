@@ -105,6 +105,20 @@
       "phone": "0389198816",
       "email": "phikhanhb7@gmail.com",
       "address": "Đà Nẳng"
+    },
+    {
+      "id": 12,
+      "code": "KH-9988",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "name": "Khanh",
+      "birthday": "2021-08-27",
+      "idCard": "0147258963",
+      "phone": "0389198816",
+      "email": "phikhanhb7@gmail.com",
+      "address": "Trieu Phong"
     }
   ],
   "position": [
@@ -242,6 +256,67 @@
       "phone": "0987654567",
       "email": "trung026@gmail.com",
       "address": "đà nẳng"
+    }
+  ],
+  "serviceType": [
+    {
+      "id": 1,
+      "name": "villa"
+    },
+    {
+      "id": 2,
+      "name": "house"
+    },
+    {
+      "id": 3,
+      "name": "room"
+    }
+  ],
+  "service": [
+    {
+      "id": 1,
+      "name": "villa1",
+      "code": "DV-0001",
+      "area": 300,
+      "numberOfFloors": 3,
+      "maxPeople": 10,
+      "cost": 5000000,
+      "serviceType": {
+        "id": 1,
+        "name": "villa"
+      },
+      "standardRoom": "vip",
+      "description": "có hồ bơi"
+    },
+    {
+      "id": 2,
+      "name": "house1",
+      "code": "DV-0002",
+      "area": 200,
+      "numberOfFloors": 2,
+      "maxPeople": 5,
+      "cost": 3000000,
+      "serviceType": {
+        "id": 2,
+        "name": "house"
+      },
+      "standardRoom": "good",
+      "description": "view đẹp"
+    },
+    {
+      "id": 3,
+      "name": "room1",
+      "code": "DV-0003",
+      "area": 100,
+      "numberOfFloors": 1,
+      "maxPeople": 3,
+      "cost": 1000000,
+      "serviceType": {
+        "id": 3,
+        "name": "room"
+      },
+      "standardRoom": "normal",
+      "description": "view đẹp"
     }
   ]
 }

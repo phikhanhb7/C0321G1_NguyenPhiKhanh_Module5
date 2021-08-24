@@ -1,40 +1,108 @@
 <div class="container mt-2">
   <h2 class="text-center">ADD New Customer</h2>
-  <form [formGroup]="createCustomer" (ngSubmit)="create()">
+  <form [formGroup]="createForm" (ngSubmit)="create()"  novalidate>
     <div>
       <div class="form-group container">
         <label>Customer code :</label>
         <input class="form-control" type="text" name="code" aria-describedby="code" formControlName="code">
+        <div *ngIf="!createForm.get('code').valid && (createForm.get('code').dirty || createForm.get('code').touched)">
+          <div [hidden]=" !createForm.get('code').errors.required">
+            <span style="color: red">vui lòng vào!!!</span>
+          </div>
+          <div [hidden]=" !createForm.get('code').errors.pattern">
+            <span style="color: red">nhập sai vui lòng nhập  đúng KH-XXXX</span>
+          </div>
+        </div>
 
         <label class="mt-2">Customer Type :</label>
-        <select class="form-control" name="customerType" formControlName="customerType" >
+        <select class="form-control" name="customerType" formControlName="customerType">
           <option *ngFor=" let ct of customerTypes" [ngValue]="ct"> {{ct.name}}</option>
         </select>
+        <div
+          *ngIf="!createForm.get('customerType').valid && (createForm.get('customerType').dirty ||createForm.get('customerType').touched)">
+          <div [hidden]="!createForm.get('customerType').errors.required">
+            <span style="color: red">vui lòng chọn customerType</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Name :</label>
         <input class="form-control" type="text" name="name" formControlName="name">
+        <div *ngIf="!createForm.get('name').valid && (createForm.get('name').dirty ||createForm.get('name').touched)">
+          <div [hidden]="!createForm.get('name').errors.required">
+            <span style="color: red">vui lòng nhập tên</span>
+          </div>
+          <div [hidden]="!createForm.get('name').errors.pattern">
+            <span style="color: red">nhập sai vui lòng nhập lại</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Birthday :</label>
         <input class="form-control" type="date" name="birthday" formControlName="birthday">
+        <div
+          *ngIf="!createForm.get('birthday').valid && (createForm.get('birthday').dirty ||createForm.get('birthday').touched)">
+          <div [hidden]="!createForm.get('birthday').errors.required">
+            <span style="color: red">vui lòng ngày sinh của bạn</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Id Card :</label>
         <input class="form-control" type="text" name="idCard" aria-describedby="idCard" formControlName="idCard">
+        <div
+          *ngIf="!createForm.get('idCard').valid && (createForm.get('idCard').dirty ||createForm.get('idCard').touched)">
+          <div [hidden]="!createForm.get('idCard').errors.required">
+            <span style="color: red">vui lòng số chứng minh </span>
+          </div>
+          <div [hidden]="!createForm.get('idCard').errors.pattern">
+            <span style="color: red">nhập sai vui lòng nhập lại</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Phone :</label>
         <input class="form-control" type="text" name="phone" aria-describedby="phone" formControlName="phone">
+        <div
+          *ngIf="!createForm.get('phone').valid && (createForm.get('phone').dirty ||createForm.get('phone').touched)">
+          <div [hidden]="!createForm.get('phone').errors.required">
+            <span style="color: red">vui lòng số điện thoại</span>
+          </div>
+          <div [hidden]="!createForm.get('phone').errors.pattern">
+            <span style="color: red">nhập sai vui lòng nhập lại</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Email :</label>
         <input class="form-control" type="text" name="email" aria-describedby="email" formControlName="email">
+        <div
+          *ngIf="!createForm.get('email').valid && (createForm.get('email').dirty ||createForm.get('email').touched)">
+          <div [hidden]="!createForm.get('email').errors.required">
+            <span style="color: red">vui lòng email</span>
+          </div>
+          <div [hidden]="!createForm.get('email').errors.email">
+            <span style="color: red">nhập sai vui lòng nhập lại</span>
+          </div>
+        </div>
+
 
         <label class="mt-2">Address :</label>
         <input class="form-control" type="text" name="address" formControlName="address">
+        <div
+          *ngIf="!createForm.get('address').valid && (createForm.get('address').dirty ||createForm.get('address').touched)">
+          <div [hidden]="!createForm.get('email').errors.required">
+            <span style="color: red">vui lòng vào</span>
+          </div>
+        </div>
+
 
         <div class="mt-2">
-          <input class="btn btn-success" type="submit" value="Create"> |
-          <a class="btn btn-dark"[routerLink]="'/customer-list'" role="button">Back</a>
+          <input [disabled]="!createForm.valid" class="btn btn-success" type="submit" value="Create"> |
+          <a class="btn btn-dark" [routerLink]="'/customer-list'" role="button">Back</a>
         </div>
       </div>
     </div>
   </form>
 </div>
-{{this.createCustomer.value | json}}
+{{this.createForm.value | json}}
