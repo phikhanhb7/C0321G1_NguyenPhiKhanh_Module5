@@ -1,46 +1,40 @@
 <div class="container mt-2">
   <h2 class="text-center">ADD New Customer</h2>
-  <form action="/customer/create" method="post">
+  <form [formGroup]="createCustomer" (ngSubmit)="create()">
     <div>
       <div class="form-group container">
         <label>Customer code :</label>
-        <input class="form-control" type="text" name="code" aria-describedby="code">
+        <input class="form-control" type="text" name="code" aria-describedby="code" formControlName="code">
 
-        <label for="customerType" class="mt-2">Customer Type :</label>
-        <select class="form-control" id="customerType">
-          <option></option>
+        <label class="mt-2">Customer Type :</label>
+        <select class="form-control" name="customerType" formControlName="customerType" >
+          <option *ngFor=" let ct of customerTypes" [ngValue]="ct"> {{ct.name}}</option>
         </select>
 
-        <label class="mt-2">name :</label>
-        <input class="form-control" type="text" name="name">
+        <label class="mt-2">Name :</label>
+        <input class="form-control" type="text" name="name" formControlName="name">
 
         <label class="mt-2">Birthday :</label>
-        <input class="form-control" type="date" name="birthday">
-
-        <label for="gender">Gender</label>
-        <select class="form-control" id="gender" name="gender">
-          <option>Male</option>
-          <option>Female</option>
-          <option>LGBT</option>
-        </select>
+        <input class="form-control" type="date" name="birthday" formControlName="birthday">
 
         <label class="mt-2">Id Card :</label>
-        <input class="form-control" type="text" name="idCard" aria-describedby="idCard">
+        <input class="form-control" type="text" name="idCard" aria-describedby="idCard" formControlName="idCard">
 
         <label class="mt-2">Phone :</label>
-        <input class="form-control" type="text" name="phone" aria-describedby="phone">
+        <input class="form-control" type="text" name="phone" aria-describedby="phone" formControlName="phone">
 
         <label class="mt-2">Email :</label>
-        <input class="form-control" type="text" name="email" aria-describedby="email">
+        <input class="form-control" type="text" name="email" aria-describedby="email" formControlName="email">
 
         <label class="mt-2">Address :</label>
-        <input class="form-control" type="text" name="address">
+        <input class="form-control" type="text" name="address" formControlName="address">
 
         <div class="mt-2">
           <input class="btn btn-success" type="submit" value="Create"> |
-          <a class="btn btn-dark" href="/customer" role="button">Back</a>
+          <a class="btn btn-dark"[routerLink]="'/customer-list'" role="button">Back</a>
         </div>
       </div>
     </div>
   </form>
 </div>
+{{this.createCustomer.value | json}}

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../model/customer';
 import {CustomerService} from '../service/customer.service';
+import {MatDialog} from '@angular/material/dialog';
+import {CustomerDeleteComponent} from '../customer-delete/customer-delete.component';
+import {CustomerType} from '../model/customerType';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,12 +12,16 @@ import {CustomerService} from '../service/customer.service';
 })
 export class CustomerListComponent implements OnInit {
   customers: Customer[] = [];
+  customerTypes: CustomerType[] = [];
+
   // public customers;
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+
     this.getAll();
     // this.customerService.getAllCustomer().subscribe(data => {
     //   this.customers = data;
@@ -23,8 +30,29 @@ export class CustomerListComponent implements OnInit {
 
   getAll() {
     this.customerService.getAllCustomer().subscribe(customers => {
-      console.log(customers);
       this.customers = customers;
+      this.customerService.getAllCustomerType().subscribe(customerType => {
+        this.customerTypes = customerType;
+      });
+    });
+  }
+
+
+  onDeleteHandler(id : number, nameParam: string): void {
+    const dialogRef = this.dialog.open(CustomerDeleteComponent, {
+      height: '140px',
+      width: '300px',
+      data: {
+        id : id,
+        nameCus: nameParam
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+          this.getAll();
+      }
     });
   }
 }

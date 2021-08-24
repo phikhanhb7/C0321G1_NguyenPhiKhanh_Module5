@@ -17,6 +17,13 @@ import {EmployeeEditComponent} from './employee/employee-edit/employee-edit.comp
 import {EmployeeDetailComponent} from './employee/employee-detail/employee-detail.component';
 import {CustomerService} from './customer/service/customer.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ToastrModule} from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { CustomerDeleteComponent } from './customer/customer-delete/customer-delete.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -32,12 +39,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     EmployeeCreateComponent,
     EmployeeEditComponent,
     EmployeeDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustomerDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]

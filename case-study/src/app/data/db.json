@@ -23,34 +23,6 @@
   ],
   "customer": [
     {
-      "id": 1,
-      "code": "KH-0001",
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      },
-      "name": "Phi Khanh",
-      "birthday": "2021-07-06",
-      "idCard": "134567281",
-      "phone": "0912345678",
-      "email": "linh12@gmail.com",
-      "address": "Hà Nội"
-    },
-    {
-      "id": 2,
-      "code": "KH-0002",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "name": "Sơn Trà",
-      "birthday": "2021-07-21",
-      "idCard": "198765728",
-      "phone": "0902123456",
-      "email": "minhquan12@gmail.com",
-      "address": "quang binh"
-    },
-    {
       "id": 3,
       "code": "KH-0003",
       "customerType": {
@@ -58,7 +30,7 @@
         "name": "Platinium"
       },
       "name": "Quốc Đại",
-      "birthday": "2021-07-06",
+      "birthday": "2021-07-24",
       "idCard": "13456728",
       "phone": "0912345678",
       "email": "nga1212@gmail.com",
@@ -90,7 +62,49 @@
       "idCard": "121221221",
       "phone": "0902121211",
       "email": "thanh@gmail.com",
-      "address": "Ha Noi"
+      "address": "Quảng Bình"
+    },
+    {
+      "id": 9,
+      "code": "KH-9999",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "name": "Khanh",
+      "birthday": "2021-08-21",
+      "idCard": "0147258963",
+      "phone": "0389198816",
+      "email": "phikhanhb7@gmail.com",
+      "address": "Triệu Phong"
+    },
+    {
+      "id": 10,
+      "code": "KH-9999",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "name": "Đường Tam",
+      "birthday": "2021-08-25",
+      "idCard": "0147258963",
+      "phone": "0389198816",
+      "email": "phikhanhb7@gmail.com",
+      "address": "Trieu Phong"
+    },
+    {
+      "id": 11,
+      "code": "KH-9999",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "Tiêu Viêm",
+      "birthday": "2021-08-27",
+      "idCard": "0147258963",
+      "phone": "0389198816",
+      "email": "phikhanhb7@gmail.com",
+      "address": "Đà Nẳng"
     }
   ],
   "position": [

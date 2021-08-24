@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Customer, CustomerResponse} from '../model/customer';
 import {Observable} from 'rxjs';
+import {CustomerType} from '../model/customerType';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,30 @@ export class CustomerService {
   constructor(private http: HttpClient) {
   }
 
-  // @ts-ignore
-  // public getAllCustomer(): Observable<Customer[]> {
-  //   this.http.get<Customer[]>(this.API_CUSTOMER);
-  // }
 
   public getAllCustomer(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.API_CUSTOMER).pipe();
+    return this.http.get<Customer[]>(this.API_CUSTOMER);
+  }
+
+
+  public saveCustomer(customer): Observable<Customer> {
+    return this.http.post<Customer>(this.API_CUSTOMER, customer);
+  }
+
+
+  public getAllCustomerType(): Observable<CustomerType[]> {
+    return this.http.get<CustomerType[]>(this.API_CUSTOMER_TYPE);
+  }
+
+  public deleteCustomer(id: number): Observable<Customer> {
+    return this.http.delete<Customer>(`${this.API_CUSTOMER}/${id}`);
+  }
+
+  update(id: number, customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.API_CUSTOMER}/${id}`, customer);
+  }
+
+  findById(id: number) {
+    return this.http.get<Customer>(`${this.API_CUSTOMER}/${id}`);
   }
 }
