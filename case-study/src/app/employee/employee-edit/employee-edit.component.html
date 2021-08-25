@@ -1,1 +1,154 @@
-<p>employee-edit works!</p>
+<h1 class="text-center" style="color:crimson">Create Employee</h1>
+<form [formGroup]="editForm" (ngSubmit)="edit()" novalidate>
+
+  <div class="container">
+    <div class="form-group">
+      <label>Employee Code:</label>
+      <input type="text" class="form-control" formControlName="code">
+      <div *ngIf="!editForm.get('code').valid  && (editForm.get('code').dirty || editForm.get('code').touched)">
+        <div [hidden]="!editForm.get('code').errors.required">
+          <span style="color: red"> Vui lòng nhập vào </span>
+        </div>
+        <div [hidden]="!editForm.get('code').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập  đúng NV-XXXX</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label>Employee Name:</label>
+      <input type="text" class="form-control" formControlName="name">
+      <div *ngIf="!editForm.get('name').valid  && (editForm.get('name').dirty || editForm.get('name').touched )">
+        <div [hidden]="!editForm.get('name').errors.required">
+          <span style="color: red"> Vui lòng nhập vào </span>
+        </div>
+        <div [hidden]="!editForm.get('name').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Birthday:</label>
+      <input type="date" class="form-control" formControlName="birthday">
+      <div *ngIf="!editForm.get('birthday').valid  && (editForm.get('birthday').dirty || editForm.get('birthday').touched)">
+        <div [hidden]="!editForm.get('birthday').errors.required">
+          <span style="color: red"> Vui lòng chọn ngày sinh </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Id Card:</label>
+      <input type="text" class="form-control" formControlName="idCard">
+      <div *ngIf="!editForm.get('idCard').valid  && (editForm.get('idCard').dirty || editForm.get('idCard').touched)">
+        <div [hidden]="!editForm.get('idCard').errors.required">
+          <span style="color: red">vui lòng số chứng minh </span>
+        </div>
+        <div [hidden]="!editForm.get('idCard').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Salary:</label>
+      <input formControlName="salary" type="text" class="form-control">
+
+      <div *ngIf="!editForm.get('salary').valid  && (editForm.get('salary').dirty || editForm.get('salary').touched)">
+        <div [hidden]="!editForm.get('salary').errors.required">
+          <span style="color: red">vui lòng nhập số tiền lương </span>
+        </div>
+        <div [hidden]="!editForm.get('salary').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Phone:</label>
+      <input type="text" class="form-control" formControlName="phone">
+      <div *ngIf="!editForm.get('phone').valid  && (editForm.get('phone').dirty || editForm.get('phone').touched)">
+        <div [hidden]="!editForm.get('phone').errors.required">
+          <span style="color: red">vui lòng nhập số điện thoại of bạn </span>
+        </div>
+        <div [hidden]="!editForm.get('phone').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Email:</label>
+      <input type="text" class="form-control" formControlName="email">
+      <div *ngIf="!editForm.get('email').valid  && (editForm.get('email').dirty || editForm.get('email').touched)">
+        <div [hidden]="!editForm.get('email').errors.required">
+          <span style="color: red">vui lòng  nhập địa chỉ email </span>
+        </div>
+        <div [hidden]="!editForm.get('email').errors.editForm">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Employee Address:</label>
+      <input type="text" class="form-control" formControlName="address">
+      <div *ngIf="!editForm.get('address').valid  && (editForm.get('address').dirty || editForm.get('address').touched)">
+        <div [hidden]="!editForm.get('address').errors.required">
+          <span style="color: red">vui lòng nhập  địa chỉ  </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Position:</label>
+      <select class="form-control" formControlName="position" [compareWith]="compareFn">
+        <option *ngFor="let p of positions" [ngValue]="p">{{p.name}}</option>
+      </select>
+      <div *ngIf="!editForm.get('position').valid  && (editForm.get('position').dirty || editForm.get('position').touched)">
+        <div [hidden]="!editForm.get('position').errors.required">
+          <span style="color: red">vui lòng  chọn </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label>EducationDegree Degree:</label>
+      <select class="form-control" formControlName="educationDegree" [compareWith]="compareFn">
+        <option *ngFor="let e of educations" [ngValue]="e">{{e.name}}</option>
+      </select>
+      <div *ngIf="!editForm.get('educationDegree').valid  && (editForm.get('educationDegree').dirty || editForm.get('educationDegree').touched )">
+        <div [hidden]="!editForm.get('educationDegree').errors.required">
+          <span style="color: red">vui lòng  chọn  </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Division:</label>
+      <select class="form-control" formControlName="division" [compareWith]="compareFn">
+        <option *ngFor="let d of divisions" [ngValue]="d">{{d.name}}</option>
+      </select>
+      <div *ngIf="!editForm.get('division').valid  && (editForm.get('division').dirty || editForm.get('division').touched )">
+        <div [hidden]="!editForm.get('division').errors.required">
+          <span style="color: red">vui lòng  chọn </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Create employee">
+    </div>
+  </div>
+
+
+</form>
+

@@ -191,48 +191,25 @@
     {
       "id": 1,
       "code": "NV-0001",
-      "name": "Thúy",
-      "position": {
-        "id": 3,
-        "name": "lễ tân"
-      },
-      "educationDegree": {
-        "id": 4,
-        "name": "đại học"
-      },
-      "division": {
-        "id": 2,
-        "name": "nhân sự"
-      },
+      "name": "Đường Thần",
       "birthday": "1997-02-24",
       "idCard": "123456789",
       "salary": "6000000",
       "phone": "0987654567",
       "email": "trung026@gmail.com",
-      "address": "Quảng Bình"
-    },
-    {
-      "id": 2,
-      "code": "NV-0002",
-      "name": "linh",
+      "address": "Quảng Bình",
       "position": {
-        "id": 1,
-        "name": "bảo vệ"
-      },
-      "educationDegree": {
-        "id": 1,
-        "name": "lao động phổ thông"
+        "id": 3,
+        "name": "lễ tân"
       },
       "division": {
-        "id": 1,
-        "name": "bảo an"
+        "id": 2,
+        "name": "nhân sự"
       },
-      "birthday": "1999-12-12",
-      "idCard": "123456789",
-      "salary": "6000000",
-      "phone": "0987654567",
-      "email": "dat1@gmail.com",
-      "address": "huế"
+      "educationDegree": {
+        "id": 4,
+        "name": "đại học"
+      }
     },
     {
       "id": 3,
@@ -256,6 +233,98 @@
       "phone": "0987654567",
       "email": "trung026@gmail.com",
       "address": "đà nẳng"
+    },
+    {
+      "id": 4,
+      "code": "NV-0006",
+      "name": "Khanh",
+      "birthday": "2021-08-27",
+      "idCard": "1313",
+      "salary": "23432423",
+      "phone": "23432",
+      "email": "sdfs",
+      "address": "sdfsdf",
+      "position": {
+        "id": 2,
+        "name": "phục vụ"
+      },
+      "division": {
+        "id": 3,
+        "name": "hành chính"
+      },
+      "educationDegree": {
+        "id": 3,
+        "name": "cao đẳng"
+      }
+    },
+    {
+      "id": 5,
+      "code": "NV-0007",
+      "name": "Đường Tam",
+      "birthday": "2021-08-29",
+      "idCard": "012365489",
+      "salary": "150000",
+      "phone": "0123654789",
+      "email": "tam@gmail.com",
+      "address": "Sài Gòn",
+      "position": {
+        "id": 2,
+        "name": "phục vụ"
+      },
+      "division": {
+        "id": 3,
+        "name": "hành chính"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "trung cấp"
+      }
+    },
+    {
+      "id": 6,
+      "code": "NV-9999",
+      "name": "Tiểu Vũ",
+      "birthday": "2021-08-29",
+      "idCard": "012369854",
+      "salary": "3000000",
+      "phone": "0123654789",
+      "email": "t@gmail.com",
+      "address": "Hà Nội",
+      "position": {
+        "id": 4,
+        "name": "quản lý"
+      },
+      "division": {
+        "id": 3,
+        "name": "hành chính"
+      },
+      "educationDegree": {
+        "id": 3,
+        "name": "cao đẳng"
+      }
+    },
+    {
+      "id": 7,
+      "code": "NV-7877",
+      "name": "Trúc Thanh",
+      "birthday": "2021-08-28",
+      "idCard": "369852147",
+      "salary": "40000000",
+      "phone": "0123658974",
+      "email": "tt@gmail.com",
+      "address": "Lào",
+      "position": {
+        "id": 4,
+        "name": "quản lý"
+      },
+      "division": {
+        "id": 2,
+        "name": "nhân sự"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "trung cấp"
+      }
     }
   ],
   "serviceType": [

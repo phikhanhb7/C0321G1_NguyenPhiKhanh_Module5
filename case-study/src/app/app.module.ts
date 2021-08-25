@@ -21,10 +21,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { CustomerDeleteComponent } from './customer/customer-delete/customer-delete.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ServiceListComponent } from './service/service-list/service-list.component';
+import { ServiceCreateComponent } from './service/service-create/service-create.component';
+import { ServiceEditComponent } from './service/service-edit/service-edit.component';
+import { ServiceDetailComponent } from './service/service-detail/service-detail.component';
+import { EmployeeDeleteComponent } from './employee/employee-delete/employee-delete.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import { MatInputModule } from '@angular/material/input';
     EmployeeEditComponent,
     EmployeeDetailComponent,
     PageNotFoundComponent,
-    CustomerDeleteComponent
+    CustomerDeleteComponent,
+    ServiceListComponent,
+    ServiceCreateComponent,
+    ServiceEditComponent,
+    ServiceDetailComponent,
+    EmployeeDeleteComponent
   ],
   imports: [
     BrowserModule,
