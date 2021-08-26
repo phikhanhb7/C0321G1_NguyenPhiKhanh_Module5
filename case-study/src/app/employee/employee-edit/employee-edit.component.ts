@@ -23,15 +23,16 @@ export class EmployeeEditComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private route: Router,
               private toast: ToastrService) {
-    this.activatedRoute.paramMap.subscribe((paraMap: ParamMap) => {
-      this.id = + paraMap.get('id');
-    })
+    // this.activatedRoute.paramMap.subscribe((paraMap: ParamMap) => {
+    //   this.id = + paraMap.get('id');
+    // })
+    this.id = this.activatedRoute.snapshot.params.id ;
   }
 
   ngOnInit(): void {
     this.getData();
     this.initForm();
-    this.getEmployee(this.id);
+    this.getEmployee();
   }
 
   getData() {
@@ -63,25 +64,30 @@ export class EmployeeEditComponent implements OnInit {
       educationDegree: new FormControl('', Validators.required),
     });
   }
-
-  getEmployee(id: number){
-    this.employeeService.findById(id).subscribe(data =>{
-      this.editForm.patchValue({
-        code : data.code,
-        name: data.name,
-        birthday: data.birthday,
-        idCard: data.idCard,
-        salary: data.salary,
-        phone: data.phone,
-        email: data.email,
-        address: data.address,
-        position: data.position,
-        division: data.division,
-        educationDegree: data.educationDegree
-      })
+// C1
+  // getEmployee(id: number){
+  //   this.employeeService.findById(id).subscribe(data =>{
+  //     this.editForm.patchValue({
+  //       code : data.code,
+  //       name: data.name,
+  //       birthday: data.birthday,
+  //       idCard: data.idCard,
+  //       salary: data.salary,
+  //       phone: data.phone,
+  //       email: data.email,
+  //       address: data.address,
+  //       position: data.position,
+  //       division: data.division,
+  //       educationDegree: data.educationDegree
+  //     })
+  //   })
+  // }
+// C2
+  getEmployee(){
+    this.employeeService.findById(this.id).subscribe(data=>{
+      this.editForm.setValue(data);
     })
   }
-
   edit() {
     const employee = this.editForm.value;
     this.employeeService.update(this.id,employee).subscribe(()=>{

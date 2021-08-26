@@ -18,7 +18,7 @@ import {EmployeeEditComponent} from './employee/employee-edit/employee-edit.comp
 import {EmployeeDetailComponent} from './employee/employee-detail/employee-detail.component';
 import {CustomerService} from './customer/service/customer.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule} from '@angular/material/dialog';
@@ -30,6 +30,7 @@ import { ServiceCreateComponent } from './service/service-create/service-create.
 import { ServiceEditComponent } from './service/service-edit/service-edit.component';
 import { ServiceDetailComponent } from './service/service-detail/service-detail.component';
 import { EmployeeDeleteComponent } from './employee/employee-delete/employee-delete.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,9 @@ import { EmployeeDeleteComponent } from './employee/employee-delete/employee-del
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]

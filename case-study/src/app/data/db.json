@@ -23,27 +23,13 @@
   ],
   "customer": [
     {
-      "id": 3,
-      "code": "KH-0003",
-      "customerType": {
-        "id": 2,
-        "name": "Platinium"
-      },
-      "name": "Quốc Đại",
-      "birthday": "2021-07-24",
-      "idCard": "13456728",
-      "phone": "0912345678",
-      "email": "nga1212@gmail.com",
-      "address": "Đà Nẳng"
-    },
-    {
       "id": 4,
       "code": "KH-0004",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "id": 4,
+        "name": "Silver"
       },
-      "name": "Ngọc Duy",
+      "name": "Khanh",
       "birthday": "2021-07-08",
       "idCard": "123456789",
       "phone": "0912345678",
@@ -189,22 +175,22 @@
   ],
   "employee": [
     {
-      "id": 1,
-      "code": "NV-0001",
-      "name": "Đường Thần",
+      "id": 3,
+      "code": "NV-0003",
+      "name": "Trang Sida",
       "birthday": "1997-02-24",
       "idCard": "123456789",
       "salary": "6000000",
       "phone": "0987654567",
       "email": "trung026@gmail.com",
-      "address": "Quảng Bình",
+      "address": "đà nẳng",
       "position": {
         "id": 3,
         "name": "lễ tân"
       },
       "division": {
-        "id": 2,
-        "name": "nhân sự"
+        "id": 3,
+        "name": "hành chính"
       },
       "educationDegree": {
         "id": 4,
@@ -212,45 +198,22 @@
       }
     },
     {
-      "id": 3,
-      "code": "NV-0003",
-      "name": "Trang",
-      "position": {
-        "id": 3,
-        "name": "lễ tân"
-      },
-      "educationDegree": {
-        "id": 4,
-        "name": "đại học"
-      },
-      "division": {
-        "id": 2,
-        "name": "nhân sự"
-      },
-      "birthday": "1997-02-24",
-      "idCard": "123456789",
-      "salary": "6000000",
-      "phone": "0987654567",
-      "email": "trung026@gmail.com",
-      "address": "đà nẳng"
-    },
-    {
       "id": 4,
       "code": "NV-0006",
-      "name": "Khanh",
+      "name": "Phi Khanh",
       "birthday": "2021-08-27",
-      "idCard": "1313",
+      "idCard": "131312123",
       "salary": "23432423",
-      "phone": "23432",
-      "email": "sdfs",
-      "address": "sdfsdf",
+      "phone": "2343212312",
+      "email": "phi@gmail.com",
+      "address": "Triệu Phong",
       "position": {
         "id": 2,
         "name": "phục vụ"
       },
       "division": {
-        "id": 3,
-        "name": "hành chính"
+        "id": 1,
+        "name": "bảo an"
       },
       "educationDegree": {
         "id": 3,
@@ -265,15 +228,15 @@
       "idCard": "012365489",
       "salary": "150000",
       "phone": "0123654789",
-      "email": "tam@gmail.com",
+      "email": "gfgh@g",
       "address": "Sài Gòn",
       "position": {
         "id": 2,
         "name": "phục vụ"
       },
       "division": {
-        "id": 3,
-        "name": "hành chính"
+        "id": 2,
+        "name": "nhân sự"
       },
       "educationDegree": {
         "id": 2,

@@ -5,7 +5,7 @@
     <div class="form-group">
       <label>Employee Code:</label>
       <input type="text" class="form-control" formControlName="code">
-      <div *ngIf="!createForm.get('code').valid  && (createForm.get('code').dirty || createForm.get('code').touched)">
+      <div *ngIf="!createForm.get('code').valid  && (createForm.get('name').dirty || createForm.get('code').touched )">
         <div [hidden]="!createForm.get('code').errors.required">
           <span style="color: red"> Vui lòng nhập vào </span>
         </div>
@@ -145,7 +145,8 @@
     </div>
 
     <div>
-      <input class="btn btn-warning" type="submit" value="Create employee">
+      <input class="btn btn-warning" [disabled]="!createForm.valid" type="submit" value="Create employee"> |
+      <a class="btn btn-primary" [routerLink]="'/employee-list'" role="button">  Back</a>
     </div>
   </div>
 

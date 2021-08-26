@@ -17,12 +17,18 @@
 
 <div style="margin: 15px 5% 40px 5%">
 
-<!--  <div style="margin: 10px">-->
-<!--    <form class="d-flex justify-content-end" action="/customers" method="get" >-->
-<!--      <input class="form-control" name="search" type="search" placeholder="Name or BirthDay or IdCard">-->
-<!--      <input class="btn btn-primary" type="submit" value="Search">-->
-<!--    </form>-->
-<!--  </div>-->
+
+  <div class="d-flex justify-content-end mb-4">
+    <select [(ngModel)]="searchCustomerTypeName" style="width: 170px ; " class="form-control d-inline-block mr-3">
+      <option *ngFor="let ct of customerTypes" [ngValue]="ct.name">{{ct.name}}</option>
+    </select>
+    <input type="text"  placeholder="name search" [(ngModel)]="searchCustomerName" class="form-control w-25 d-inline-block justify-content-end mr-3 ">
+    <button class="btn btn-primary d-inline-block " (click)="search()" [disabled]="!(searchCustomerName != '' || searchCustomerTypeName != '')"> Search</button>
+  </div>
+
+
+
+
   <table class="table table-bordered  table-hover ">
     <thead class="table-secondary">
     <tr>
@@ -43,7 +49,7 @@
     <tr *ngFor="let customer of customers | paginate: {itemsPerPage: 3 , currentPage : p} ; let i = index">
       <td>{{p*2+i-1}}</td>
       <td>{{customer.code}}</td>
-      <td>{{customer?.customerType?.name}}</td>
+      <td style="color: blue">{{customer?.customerType?.name}}</td>
       <td><a (click)="onDetailHandler(customer)">{{customer.name}}</a></td>
       <td>{{customer.birthday}}</td>
       <td>{{customer.idCard}}</td>

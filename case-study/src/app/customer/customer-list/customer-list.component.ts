@@ -18,6 +18,9 @@ export class CustomerListComponent implements OnInit {
   // public customers;
   p:number = 1;
 
+  searchCustomerName  = '';
+  searchCustomerTypeName = '';
+
   constructor(private customerService: CustomerService,
               private dialog: MatDialog) {
   }
@@ -63,6 +66,24 @@ export class CustomerListComponent implements OnInit {
       width: '500px',
       height: '700px',
       data: customer
+    });
+  }
+
+  search() {
+    // if (this.searchCustomerName == '' && this.searchCustomerTypeName != ''){
+    //   this.customerService.search2(this.searchCustomerTypeName).subscribe(data =>{
+    //     this.customers = data;
+    //     console.log(this.searchCustomerTypeName)
+    //     console.log(this.searchCustomerName)
+    //   })
+    // }else if (this.searchCustomerName != '' && this.searchCustomerTypeName == ''){
+    //   this.customerService.search1(this.searchCustomerName).subscribe(data=>{
+    //     this.customers = data;
+    //     console.log(this.searchCustomerName)
+    //   })
+    // }
+    this.customerService.search(this.searchCustomerName,this.searchCustomerTypeName).subscribe(data => {
+      this.customers = data;
     });
   }
 }

@@ -6,6 +6,9 @@ import {EmployeeService} from '../service/employee.service';
 import {MatDialog} from '@angular/material/dialog';
 import {CustomerDeleteComponent} from '../../customer/customer-delete/customer-delete.component';
 import {EmployeeDeleteComponent} from '../employee-delete/employee-delete.component';
+import {Customer} from '../../customer/model/customer';
+import {CustomerDetailComponent} from '../../customer/customer-detail/customer-detail.component';
+import {EmployeeDetailComponent} from '../employee-detail/employee-detail.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,6 +21,7 @@ export class EmployeeListComponent implements OnInit {
   // educations: EducationDegree[] =[];
   employees: Employee[] = [];
   p = 1;
+  term: any;
 
   constructor(private employeeService: EmployeeService,
               private  dialog: MatDialog) {
@@ -57,6 +61,14 @@ export class EmployeeListComponent implements OnInit {
       if (result) {
         this.ngOnInit();
       }
+    });
+  }
+
+  onDetailHandler(employee: Employee) {
+    const dialogRef = this.dialog.open(EmployeeDetailComponent, {
+      width: '500px',
+      height: '700px',
+      data: employee
     });
   }
 }

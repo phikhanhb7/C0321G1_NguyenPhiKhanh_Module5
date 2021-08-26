@@ -40,4 +40,14 @@ export class CustomerService {
   findById(id: number) {
     return this.http.get<Customer>(`${this.API_CUSTOMER}/${id}`);
   }
+
+  search(searchCustomerName: string, searchCustomerTypeName: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER + '?name_like=' + searchCustomerName + '&customerType.name_like=' + searchCustomerTypeName );
+  }
+  // search1(searchCustomerName: string): Observable<Customer[]> {
+  //   return this.http.get<Customer[]>(this.API_CUSTOMER + '?name_like=' + searchCustomerName  );
+  // }
+  // search2( searchCustomerTypeName: string): Observable<Customer[]> {
+  //   return this.http.get<Customer[]>(this.API_CUSTOMER + '?customerType.name_like=' + searchCustomerTypeName );
+  // }
 }
