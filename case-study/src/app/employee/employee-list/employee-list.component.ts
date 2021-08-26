@@ -17,7 +17,7 @@ export class EmployeeListComponent implements OnInit {
   // positions: Position[] = [];
   // educations: EducationDegree[] =[];
   employees: Employee[] = [];
-  p: number;
+  p = 1;
 
   constructor(private employeeService: EmployeeService,
               private  dialog: MatDialog) {

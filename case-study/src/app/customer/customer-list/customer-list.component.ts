@@ -16,7 +16,7 @@ export class CustomerListComponent implements OnInit {
   customerTypes: CustomerType[] = [];
 
   // public customers;
-  p:number;
+  p:number = 1;
 
   constructor(private customerService: CustomerService,
               private dialog: MatDialog) {
