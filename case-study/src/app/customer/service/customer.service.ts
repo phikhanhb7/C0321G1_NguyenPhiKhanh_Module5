@@ -44,10 +44,16 @@ export class CustomerService {
   search(searchCustomerName: string, searchCustomerTypeName: string): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.API_CUSTOMER + '?name_like=' + searchCustomerName + '&customerType.name_like=' + searchCustomerTypeName );
   }
-  // search1(searchCustomerName: string): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>(this.API_CUSTOMER + '?name_like=' + searchCustomerName  );
-  // }
-  // search2( searchCustomerTypeName: string): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>(this.API_CUSTOMER + '?customerType.name_like=' + searchCustomerTypeName );
-  // }
+
+  sort(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER + '?_sort=idCard');
+  }
+
+  sort1(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER + '?_sort=name');
+  }
+
+  sort2(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER + '?_sort=code');
+  }
 }

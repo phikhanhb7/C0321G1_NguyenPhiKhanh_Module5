@@ -108,6 +108,7 @@
     <div class="form-group">
       <label>Position:</label>
       <select class="form-control" formControlName="position">
+        <option value="" selected> -- Vui lòng chọn -- </option>
         <option *ngFor="let p of positions" [ngValue]="p">{{p.name}}</option>
       </select>
       <div *ngIf="!createForm.get('position').valid  && (createForm.get('position').dirty || createForm.get('position').touched)">
@@ -121,6 +122,7 @@
     <div class="form-group">
       <label>EducationDegree Degree:</label>
       <select class="form-control" formControlName="educationDegree">
+        <option value="" selected> -- Vui lòng chọn -- </option>
         <option *ngFor="let e of educations" [ngValue]="e">{{e.name}}</option>
       </select>
       <div *ngIf="!createForm.get('educationDegree').valid  && (createForm.get('educationDegree').dirty || createForm.get('educationDegree').touched )">
@@ -134,6 +136,7 @@
     <div class="form-group">
       <label>Division:</label>
       <select class="form-control" formControlName="division">
+        <option value="" selected> -- Vui lòng chọn -- </option>
         <option *ngFor="let d of divisions" [ngValue]="d">{{d.name}}</option>
       </select>
       <div *ngIf="!createForm.get('division').valid  && (createForm.get('division').dirty || createForm.get('division').touched )">

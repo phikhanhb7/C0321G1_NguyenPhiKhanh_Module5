@@ -1,80 +1,94 @@
-<!--<h1  class="text-center" style="color:crimson">Create Villa Service</h1>-->
-<!--<a class="btn btn-primary mb-2 ml-4" href="" role="button">Service list</a>-->
+<h1  class="text-center" style="color:crimson">Create Villa Service</h1>
 
-<!--<form id="form" action="@{/create-service-villa}" method="post">-->
-<!--  <input type="hidden" />-->
-<!--  <div class="container">-->
-<!--    <div class="form-group">-->
-<!--      <label>Service Code:</label>-->
-<!--      <input type="text" class="form-control" >-->
-<!--    </div>-->
 
-<!--    <div class="form-group">-->
-<!--      <label>Service Name:</label>-->
-<!--      <input type="text" class="form-control" >-->
-<!--    </div>-->
+<form [formGroup]="createForm" (ngSubmit)="create()" novalidate>
 
-<!--    <div class="form-group">-->
-<!--      <label>Service Area:</label>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="text" class="form-control">-->
-<!--        <span class="input-group-text">.00</span>-->
-<!--      </div>-->
-<!--    </div>-->
+  <div class="container">
+    <div class="form-group">
+      <label>Service Code:</label>
+      <input type="text" class="form-control" formControlName="code">
+    </div>
+    <p class="text-danger"
+       *ngIf="createForm.controls.code.hasError('required')
+         && createForm.controls.code.dirty">
+      Please Input !!!
+    </p>
+    <p class="text-danger"
+       *ngIf="createForm.controls.code.hasError('pattern')">
+      Mã Khách hàng có định dạng là KH-XXXX (X là số từ 0-9)
+    </p>
 
-<!--    <div class="form-group">-->
-<!--      <label>Service Cost:</label>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <span class="input-group-text">$</span>-->
-<!--        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >-->
-<!--        <span class="input-group-text">VND</span>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Service Name:</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+    <p class="text-danger"
+       *ngIf="createForm.controls.name.hasError('required')
+         && createForm.controls.name.dirty">
+      Please Input !!!
+    </p>
+    <div class="form-group">
+      <label>Service Area:</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="area">
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+    <p class="text-danger"
+       *ngIf="createForm.controls.area.hasError('required')
+         && createForm.controls.area.dirty">
+      Please Input !!!
+    </p>
+    <div class="form-group">
+      <label>Service Cost:</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="cost">
+        <span class="input-group-text">VND</span>
+      </div>
+    </div>
+    <p class="text-danger"
+       *ngIf="createForm.controls.cost.hasError('required')
+         && createForm.controls.cost.dirty">
+      Please Input !!!
+    </p>
+    <div class="form-group">
+      <label>Service Max People:</label>
+      <input type="text" class="form-control" >
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Service Max People:</label>-->
-<!--      <input type="text" class="form-control" >-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Standard Room:</label>
+      <input type="text" class="form-control" >
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Standard Room:</label>-->
-<!--      <input type="text" class="form-control" >-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Description Other Convenience:</label>
+      <input type="text" class="form-control">
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Description Other Convenience:</label>-->
-<!--      <input type="text" class="form-control">-->
-<!--    </div>-->
 
-<!--    <div class="form-group">-->
-<!--      <label>Poll Area:</label>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="text" class="form-control" >-->
-<!--        <span class="input-group-text">.00</span>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Number Of Floors:</label>
+      <input type="text" class="form-control" >
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Number Of Floors:</label>-->
-<!--      <input type="text" class="form-control" >-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Service Type:</label>
+      <select class="form-control" >
+        <option ></option>
+      </select>
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Service Type:</label>-->
-<!--      <select class="form-control" >-->
-<!--        <option ></option>-->
-<!--      </select>-->
-<!--    </div>-->
+    <div class="form-group">
+      <label>Rent Type:</label>
+      <select class="form-control" >
+        <option ></option>
+      </select>
+    </div>
 
-<!--    <div class="form-group">-->
-<!--      <label>Rent Type:</label>-->
-<!--      <select class="form-control" >-->
-<!--        <option ></option>-->
-<!--      </select>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--      <input class="btn btn-warning" type="submit" value="Create villa service">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
+    <div>
+      <input class="btn btn-warning" type="submit" value="Create villa service">
+    </div>
+  </div>
+</form>

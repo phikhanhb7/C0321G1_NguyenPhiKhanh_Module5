@@ -48,8 +48,7 @@ export class EmployeeListComponent implements OnInit {
 
   onDeleteHandler(id: number, nameParam: string): void {
     const dialogRef = this.dialog.open(EmployeeDeleteComponent, {
-      height: '140px',
-      width: '300px',
+     width: '500px',
       data: {
         id: id,
         nameCus: nameParam

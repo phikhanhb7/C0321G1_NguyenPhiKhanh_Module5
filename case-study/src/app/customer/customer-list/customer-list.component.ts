@@ -70,20 +70,30 @@ export class CustomerListComponent implements OnInit {
   }
 
   search() {
-    // if (this.searchCustomerName == '' && this.searchCustomerTypeName != ''){
-    //   this.customerService.search2(this.searchCustomerTypeName).subscribe(data =>{
-    //     this.customers = data;
-    //     console.log(this.searchCustomerTypeName)
-    //     console.log(this.searchCustomerName)
-    //   })
-    // }else if (this.searchCustomerName != '' && this.searchCustomerTypeName == ''){
-    //   this.customerService.search1(this.searchCustomerName).subscribe(data=>{
-    //     this.customers = data;
-    //     console.log(this.searchCustomerName)
-    //   })
-    // }
     this.customerService.search(this.searchCustomerName,this.searchCustomerTypeName).subscribe(data => {
       this.customers = data;
+      this.p = 1;
     });
+  }
+
+  sortIdCard() {
+    this.customerService.sort().subscribe(data=>{
+      this.customers = data;
+      this.p = 1;
+    })
+  }
+
+  sortName() {
+    this.customerService.sort1().subscribe(data=>{
+      this.customers = data;
+      this.p = 1;
+    })
+  }
+
+  sortCode() {
+    this.customerService.sort2().subscribe(data=>{
+      this.customers = data;
+      this.p = 1;
+    })
   }
 }

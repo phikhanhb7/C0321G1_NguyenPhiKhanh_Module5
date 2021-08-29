@@ -16,6 +16,7 @@
 
         <label class="mt-2">Customer Type :</label>
         <select class="form-control" name="customerType" formControlName="customerType">
+          <option value="" selected> -- Vui lòng chọn -- </option>
           <option *ngFor=" let ct of customerTypes" [ngValue]="ct"> {{ct.name}}</option>
         </select>
         <div
