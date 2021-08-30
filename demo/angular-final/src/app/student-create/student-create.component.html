@@ -1,0 +1,85 @@
+<h1 class="text-center" style="color:crimson">Create Student</h1>
+<form [formGroup]="createForm" (ngSubmit)="create()" novalidate>
+
+  <div class="container">
+    <div class="form-group">
+      <label>Name :</label>
+      <input type="text" class="form-control" formControlName="name">
+      <div *ngIf="!createForm.get('name').valid  && (createForm.get('name').dirty || createForm.get('name').touched )">
+        <div [hidden]="!createForm.get('name').errors.required">
+          <span style="color: red"> Vui lòng nhập vào </span>
+        </div>
+        <div [hidden]="!createForm.get('name').errors.pattern">
+          <span style="color: red">nhập sai vui lòng nhập  đúng</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label>Age :</label>
+      <input type="number" class="form-control" formControlName="age">
+      <div *ngIf="!createForm.get('age').valid  && (createForm.get('age').dirty || createForm.get('age').touched )">
+        <div [hidden]="!createForm.get('age').errors.required">
+          <span style="color: red"> Vui lòng nhập vào </span>
+        </div>
+        <div [hidden]="!createForm.get('age').errors.min">
+          <span style="color: red">nhập sai vui lòng nhập lại</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address :</label>
+      <input type="text" class="form-control" formControlName="address">
+      <div
+        *ngIf="!createForm.get('address').valid  && (createForm.get('address').dirty || createForm.get('address').touched)">
+        <div [hidden]="!createForm.get('address').errors.required">
+          <span style="color: red"> Vui lòng nhap </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender :</label>
+      <select formControlName="gender" class="form-control" id="gender" name="gender">
+        <option value="" selected> -- Choose --</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+        <option value="2">LGBT</option>
+      </select>
+      <div
+        *ngIf="!createForm.get('gender').valid  && (createForm.get('gender').dirty || createForm.get('gender').touched)">
+        <div [hidden]="!createForm.get('gender').errors.required">
+          <span style="color: red">vui lòng Chon</span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Class:</label>
+        <select class="form-control" formControlName="class">
+          <option value="" selected> -- Vui lòng chọn --</option>
+          <option *ngFor="let d of classList" [ngValue]="d">{{d.name}}</option>
+        </select>
+        <div
+          *ngIf="!createForm.get('class').valid  && (createForm.get('class').dirty || createForm.get('class').touched )">
+          <div [hidden]="!createForm.get('class').errors.required">
+            <span style="color: red">vui lòng  chọn </span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <input class="btn btn-warning" [disabled]="!createForm.valid" type="submit" value="Create employee"> |
+        <a class="btn btn-primary" [routerLink]="''" role="button"> Back</a>
+      </div>
+    </div>
+  </div>
+
+</form>
+

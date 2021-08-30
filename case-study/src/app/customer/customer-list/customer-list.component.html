@@ -20,6 +20,7 @@
 
   <div class="d-flex justify-content-end mb-4">
     <select [(ngModel)]="searchCustomerTypeName" style="width: 170px ; " class="form-control d-inline-block mr-3">
+      <option value="" selected>--Choose</option>
       <option *ngFor="let ct of customerTypes" [ngValue]="ct.name">{{ct.name}}</option>
     </select>
     <input type="text"  placeholder="name search" [(ngModel)]="searchCustomerName" class="form-control w-25 d-inline-block justify-content-end mr-3 ">

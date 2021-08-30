@@ -1,0 +1,50 @@
+<h1>Danh sách sản phẩm</h1>
+<span>{{message}}</span>
+<a routerLink="/product/create"> Tạo mới sản phẩm</a>
+<table class="table table-bordered">
+  <tr>
+    <td>STT</td>
+    <td>Tên</td>
+    <td>Giá</td>
+    <td>Mô tả</td>
+    <td>Danh Mục</td>
+    <td>Thuộc tính</td>
+  </tr>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
+    <td><a [routerLink]="['/product/edit', product.id]">
+      <button class="btn btn-warning">
+        Edit
+      </button>
+    </a>
+<!--      <a [routerLink]="['/product/delete', product.id]">-->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="changeId(product.id)">
+          Delete
+        </button>
+     </td>
+  </tr>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteModal()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

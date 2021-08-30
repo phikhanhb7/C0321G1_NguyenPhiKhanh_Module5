@@ -1,0 +1,62 @@
+{
+  "classList": [
+    {
+      "id": 1,
+      "name": "C0321G1"
+    },
+    {
+      "id": 2,
+      "name": "C0221G1"
+    },
+    {
+      "id": 3,
+      "name": "C0421G1"
+    }
+  ],
+  "studentList": [
+    {
+      "id": 2,
+      "name": "Nguyễn Ngọc Duy",
+      "age": 20,
+      "address": "Đà Nẵng",
+      "gender": "2",
+      "class": {
+        "id": 1,
+        "name": "C0321G1"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Tiểu Vũ",
+      "age": 20,
+      "address": "Hà Nội",
+      "gender": "1",
+      "class": {
+        "id": 1,
+        "name": "C0321G1"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Đường Tam",
+      "age": 21,
+      "address": "Sài Gòn",
+      "gender": "0",
+      "class": {
+        "id": 2,
+        "name": "C0221G1"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Hoắc Vũ Hạo",
+      "age": 15,
+      "address": "Bình Định",
+      "gender": "0",
+      "class": {
+        "id": 3,
+        "name": "C0421G1"
+      }
+    }
+  ]
+}

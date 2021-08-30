@@ -22,14 +22,18 @@ export class ServiceCreateComponent implements OnInit {
               private toast : ToastrService) { }
 
   ngOnInit(): void {
+    this.getData();
+    this.getInit();
   }
 
   getData(){
     this.service.getAllRentType().subscribe(data =>{
       this.rentTypes = data;
+      console.log(data)
     })
     this.service.getAllServiceType().subscribe(data =>{
-      this.rentTypes = data;
+      this.serviceTypes = data;
+      console.log(data)
     })
   }
 

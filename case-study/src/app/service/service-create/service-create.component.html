@@ -15,7 +15,7 @@
     </p>
     <p class="text-danger"
        *ngIf="createForm.controls.code.hasError('pattern')">
-      Mã Khách hàng có định dạng là KH-XXXX (X là số từ 0-9)
+      Mã Khách hàng có định dạng là DV-XXXX (X là số từ 0-9)
     </p>
 
     <div class="form-group">
@@ -30,7 +30,7 @@
     <div class="form-group">
       <label>Service Area:</label>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" formControlName="area">
+        <input type="number" class="form-control" formControlName="area">
         <span class="input-group-text">.00</span>
       </div>
     </div>
@@ -39,11 +39,15 @@
          && createForm.controls.area.dirty">
       Please Input !!!
     </p>
+    <p class="text-danger"
+       *ngIf="createForm.controls.area.hasError('min')">
+    Số dương nhé
+    </p>
     <div class="form-group">
       <label>Service Cost:</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="cost">
+        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="cost">
         <span class="input-group-text">VND</span>
       </div>
     </div>
@@ -52,41 +56,80 @@
          && createForm.controls.cost.dirty">
       Please Input !!!
     </p>
+    <p class="text-danger"
+       *ngIf="createForm.controls.cost.hasError('min')">
+      Số dương nhé
+    </p>
     <div class="form-group">
       <label>Service Max People:</label>
-      <input type="text" class="form-control" >
+      <input type="number" class="form-control" formControlName="maxPeople">
     </div>
+    <p class="text-danger"
+       *ngIf="createForm.controls.maxPeople.hasError('required')
+         && createForm.controls.maxPeople.dirty">
+      Please Input !!!
+    </p>
+    <p class="text-danger"
+       *ngIf="createForm.controls.maxPeople.hasError('min')">
+      Số dương nhé
+    </p>
 
     <div class="form-group">
       <label>Standard Room:</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" formControlName="standardRoom">
     </div>
-
+    <p class="text-danger"
+       *ngIf="createForm.controls.standardRoom.hasError('required')
+         && createForm.controls.standardRoom.dirty">
+      Please Input !!!
+    </p>
     <div class="form-group">
       <label>Description Other Convenience:</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="description">
     </div>
-
+    <p class="text-danger"
+       *ngIf="createForm.controls.description.hasError('required')
+         && createForm.controls.description.dirty">
+      Please Input !!!
+    </p>
 
     <div class="form-group">
       <label>Number Of Floors:</label>
-      <input type="text" class="form-control" >
+      <input type="number" class="form-control" formControlName="numberOfFloors">
     </div>
-
+    <p class="text-danger"
+       *ngIf="createForm.controls.numberOfFloors.hasError('required')
+         && createForm.controls.numberOfFloors.dirty">
+      Please Input !!!
+    </p>
+    <p class="text-danger"
+       *ngIf="createForm.controls.numberOfFloors.hasError('min')">
+      Số dương nhé
+    </p>
     <div class="form-group">
       <label>Service Type:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" formControlName="serviceType">
+        <option value="" selected > -- Vui lòng chọn -- </option>
+        <option *ngFor="let d of serviceTypes" [ngValue]="d">{{d.name}}</option>
       </select>
     </div>
-
+    <p class="text-danger"
+       *ngIf="createForm.controls.serviceType.hasError('required')
+         && createForm.controls.serviceType.dirty">
+      Please Input !!!
+    </p>
     <div class="form-group">
       <label>Rent Type:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" formControlName="rentType">
+        <option value="" selected > -- Vui lòng chọn -- </option>
+        <option *ngFor="let d of rentTypes" [ngValue]="d">{{d.name}}</option>
       </select>
     </div>
-
+    <p class="text-danger"
+       *ngIf="createForm.controls.rentType.hasError('required')
+         && createForm.controls.rentType.dirty">
+      Please Input !!!
+    </p>
     <div>
       <input class="btn btn-warning" type="submit" value="Create villa service">
     </div>
